@@ -13,7 +13,7 @@ const InfoSection = () => {
           [VOJTĚCH KOCHTA]
         </h1>
         <p className="info-section-animated-3 mt-4 text-2xl lg:text-3xl">
-          a jsem <span className="text-blue-500">IT Developer</span>.
+          a jsem <span className="text-blue-500">IT Developer 123</span>.
         </p>
         <p className="info-section-animated-4 text-base drop-shadow lg:text-lg">
           Specializuji se na webový vývoj a umělou inteligenci. Specializuji se
