@@ -1,7 +1,7 @@
 // components/Header/GradientImage.tsx
 import React from "react";
 import Image from "next/image";
-import gradientImageSrc from "../../../public/Gradient.webp";
+import gradientImageSrc from "../../public/Gradient.webp";
 
 const GradientImage = () => {
   return (
