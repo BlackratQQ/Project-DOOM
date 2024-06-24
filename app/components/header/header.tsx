@@ -2,11 +2,11 @@
 import React, { Fragment } from "react";
 import Link from "next/link";
 // import ScrollArrow from "./scrollArrow";
-import InfoSection from "./infoSection";
-import PortraitImage from "./portraitImage";
-import GradientImage from "./gradientImage";
-import ParticlesContainer from "./particlesContainer";
-import NumberInfo from "./numberInfo";
+import InfoSection from "./InfoSection";
+import PortraitImage from "./PortraitImage";
+import GradientImage from "./GradientImage";
+import ParticlesContainer from "./ParticlesContainer";
+import NumberInfo from "./NumberInfo";
 // import useLenis from "../../hooks/useLenis";
 
 const Header: React.FC = () => {
