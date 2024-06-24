@@ -3,7 +3,7 @@ import WebService from "./sections/WebCreation";
 import Seo from "./sections/WebsiteManagement";
 import Content from "./sections/ContentCreation";
 import MainServices from "./sections/MainServices";
-import FadeInBox from "../animations/FadeInBox";
+// import FadeInBox from "../animations/FadeInBox";
 
 const Services: React.FC = () => {
   return (
