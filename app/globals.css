@@ -1,33 +1,703 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap");
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color: #fff;
+  --secondary-color: #000;
+  --primary-heading-color: #bebebe;
+  --secondary-heading-color: #4eb2c9;
+  --background-color: #030811;
+  --text-color: #bebebe;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/*NADPISY PRO SEKCE*/
+
+.section-heading {
+  background: linear-gradient(to right, #237c78, #00e1ff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline;
+  padding-top: 0.3em;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/*CART*/
+.card-container {
+  box-shadow: 12px 12px 19px #38495c54, -12px -12px 19px #0d1116;
+  transition: transform 0.3s ease; /* Přidání plynulého přechodu */
+}
+
+.hashtag-glow {
+  box-shadow: 0px 0px 10px #38495c54, -0px -0px 10px #0d1116;
+  transition: transform 0.3s ease; /* Přidání plynulého přechodu */
+}
+
+.card-container:hover {
+  transform: translateY(-10px); /* Posun nahoru při hover */
+  cursor: pointer;
+}
+
+/*BUTTON HOVER SHADOW*/
+.hover-shadow:hover {
+  box-shadow: 0 0 10px 3px #a0c2e78e;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/*GRADIENTY*/
+.gradient-background {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 65%, #002853 1%, transparent 17%),
+    radial-gradient(circle at 80% 38%, #002853 0%, transparent 15%),
+    radial-gradient(circle at 50% 60%, #2b0053 0%, transparent 12%);
+}
+
+.gradient-background2 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 10% 35%, #002853 1%, transparent 10%),
+    radial-gradient(circle at 90% 50%, #002853 0%, transparent 10%),
+    radial-gradient(circle at 65% 70%, #2b0053 0%, transparent 14%);
+}
+
+.gradient-background3 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 10% 35%, #002853 1%, transparent 10%),
+    radial-gradient(circle at 90% 50%, #002853 0%, transparent 10%),
+    radial-gradient(circle at 45% 68%, #2b0053 0%, transparent 14%);
+}
+
+.gradient-background4 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 10% 35%, #002853 1%, transparent 10%),
+    radial-gradient(circle at 90% 50%, #002853 0%, transparent 10%),
+    radial-gradient(circle at 45% 90%, #2b0053 0%, transparent 4%);
+}
+
+/*PANELY*/
+.panel-webservices {
+  position: relative;
+  min-height: 100vh;
+  z-index: 5;
+}
+
+.panel-subservice {
+  position: relative;
+  min-height: 20vh;
+  z-index: 5;
+}
+
+.panel-fixed {
+  z-index: 1;
+}
+.panel-inner {
+  padding: 1em;
+  width: 100%;
+}
+.panel-fixed .panel-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.panel-one {
+  background-color: red;
+}
+
+.panel-two {
+  background-color: #ff00005d;
+}
+
+.panel-three {
+  background-color: #ff000000;
+}
+
+.center-top-left {
+  transform: translate(-45%, -45%);
+}
+
+.center-bottom-right {
+  transform: translate(40%, 40%);
+}
+
+/* Stylování pozadí scrollbaru */
+::-webkit-scrollbar {
+  background-color: #000000;
+}
+
+/* Stylování pohyblivé části scrollbaru */
+::-webkit-scrollbar-thumb {
+  background-color: #dc2626;
+  border-radius: 50px;
+}
+
+/* Stylování části scrollbaru, když je myš nad ním */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #b92020;
+}
+
+/* Zvětšení scrollbaru na hover v Firefoxu */
+*:hover {
+  scrollbar-width: auto; /* Firefox bohužel nepodporuje přesné šířky, pouze 'auto' nebo 'thin' */
+  scrollbar-color: #dc2626;
+}
+
+.backgroundAnimation {
+  animation: expandBackground 0.2s ease-in-out forwards,
+    shrinkBackground 0.2s ease-in-out 1s forwards;
+}
+
+.textAnimation {
+  animation: fadeInText 0s ease-in-out 0.2s forwards;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  z-index: 10;
+  transform: scaleX(0);
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  opacity: 0;
+}
+
+.projekt-sekce {
+  margin-top: 100vh;
+  margin-bottom: 50vh;
+  height: 100vh;
+  position: relative;
+}
+
+/* CSS pro animaci pozadí */
+/* Rozšíření pozadí */
+@keyframes expandBackground {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
   }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* Smrštění pozadí */
+@keyframes shrinkBackground {
+  from {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  to {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* CSS pro animaci textu */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/****************/
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/*FOOTER*/
+footer {
+  box-shadow: 0 0 14px 2px #a0c2e78e;
+}
+
+/*SCROLLING ARROW DOWN*/
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.arrowContainer {
+  display: block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(0deg);
+  transition: transform 0.4s ease, bottom 0.4s ease;
+  z-index: 20;
+}
+
+.arrowContainer:hover {
+  cursor: pointer;
+  transform: translate(-50%, 0%) rotateZ(0deg);
+  bottom: 40px;
+}
+
+.arrowContainer:hover .arrow {
+  top: 50%;
+  animation-play-state: paused;
+  opacity: 1 !important;
+}
+
+.arrowContainer:hover .arrow:before {
+  transform: translate(-50%, -50%) rotateZ(-30deg);
+}
+
+.arrowContainer:hover .arrow:after {
+  transform: translate(-50%, -50%) rotateZ(30deg);
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  transition: all 0.4s ease;
+  animation: animate 2s infinite;
+  opacity: 0;
+}
+
+.arrow:before,
+.arrow:after {
+  transition: all 0.4s ease;
+  content: "";
+  display: block;
+  position: absolute;
+  transform-origin: bottom right;
+  background: #fff;
+  width: 4px;
+  height: 50px;
+  border-radius: 10px;
+  transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+
+.arrow:after {
+  transform-origin: bottom left;
+  transform: translate(-50%, -50%) rotateZ(45deg);
+}
+
+.arrow:nth-child(1) {
+  top: 15%;
+}
+
+.arrow:nth-child(2) {
+  top: 30%;
+}
+
+.arrow:nth-child(3) {
+  top: 45%;
+}
+
+/*************************************************************************/
+
+/*VÝŠKA HEADERU*/
+.height-custom {
+  height: calc(100vh - 225px);
+}
+
+/*Action buttony u slideru a šipky*/
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #4299e1 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #cb2323 !important;
+  width: calc(var(--swiper-navigation-size) / 44 * 6) !important;
+  margin-top: calc(0px - (var(--swiper-navigation-size))) !important;
+}
+
+/*FORM*/
+.floating-label {
+  position: relative;
+}
+
+.floating-label input,
+.floating-label textarea {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin: 0 0 20px 0;
+  padding: 10px;
+}
+
+.floating-label label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
+  color: #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.floating-label textarea:focus + label,
+.floating-label textarea:not(:placeholder-shown) + label {
+  font-size: 20px;
+  opacity: 0;
+}
+
+/*MENU DESKTOP*/
+.link-hover::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-out;
+}
+
+.link-hover:hover::before {
+  width: 100%;
+}
+
+.laser-beam {
+  @apply absolute left-1/2 h-full w-1 bg-red-700;
+  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.8);
+  animation: laserAnimation 2s infinite alternate;
+}
+
+@keyframes laserAnimation {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*MENU*/
+.item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.link {
+  position: relative;
+  line-height: 2em;
+  letter-spacing: 2px;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--clr);
+  transform: translateY(2rem);
+}
+
+.active .item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.link::before {
+  content: attr(data-text);
+  position: absolute;
+  color: var(--clr);
+  width: 0px;
+  height: 4.5rem;
+  overflow: hidden;
+  transition: 1s;
+  border-right: 8px solid var(--clr);
+}
+@media (min-width: 768px) {
+  .link::before {
+    height: 8.5rem;
+  }
+}
+
+.link:hover::before {
+  width: 100%;
+  filter: drop-shadow(7px -12px 50px var(--clr));
+}
+
+.active .item:nth-child(1) {
+  transition-delay: 0.3s;
+}
+.active .item:nth-child(2) {
+  transition-delay: 0.6s;
+}
+.active .item:nth-child(3) {
+  transition-delay: 0.9s;
+}
+.active .item:nth-child(4) {
+  transition-delay: 1.2s;
+}
+.active .item:nth-child(5) {
+  transition-delay: 1.5s;
+}
+
+/*SLIDE CONTENT*/
+.slideOutLeft {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+/*LOADING*/
+.logo-fade-out {
+  animation: fadeOutAnimation 1s 4s forwards;
+}
+
+@keyframes fadeOutAnimation {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/*ANIMACE*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 1s ease-out;
+}
+
+/*HEADER - INFOSECTION*/
+@keyframes slideDownFadeIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*HEADER - PORTRAIT*/
+@keyframes slideUpAndRemoveBlur {
+  0% {
+    transform: translateY(100%);
+    filter: blur(5px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    filter: blur(5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.portrait-animated {
+  animation: slideUpAndRemoveBlur 2s ease-out forwards;
+}
+
+/*PORTRAIT*/
+.portraitImage {
+  background-size: 50% auto;
+}
+
+/*SERVICES*/
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.glass-effect:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.lightbox-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  max-height: auto;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: auto;
+
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lightbox-content h2 {
+  margin-top: 0;
+  color: #dc2626;
+  font-size: 2.4em;
+  text-align: left !important;
+}
+
+.lightbox-content p {
+  color: #fff;
+  line-height: 1.6;
+}
+
+.lightbox-content h3 {
+  color: #dc2626;
+  font-size: 1.4em;
+  margin-top: 15px;
+}
+
+.lightbox-content div {
+  margin-top: 10px;
+}
+
+/* Medium devices (tablety) */
+@media (min-width: 768px) {
+  .lightbox-content {
+    width: 85%;
+    height: auto;
+  }
+}
+
+/* Large devices (malé desktopové monitory) */
+@media (min-width: 992px) {
+  .lightbox-content {
+    width: 75%;
+    height: auto;
+  }
+}
+
+/* Extra large devices (velké desktopové monitory) */
+@media (min-width: 1200px) {
+  .lightbox-content {
+    width: 65%;
+    height: auto;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 48px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #dc2626;
+}
+
+/*MY WORK*/
+.text-overlay {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay-animation {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  z-index: 1;
+}
+
+.project-images {
+  margin-top: 40vh;
+  height: 100vh;
+  position: relative;
 }

@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "tsparticles": "^2.0.6",
-    "react-tsparticles": "^2.12.2"
+    "react-scroll": "^1.9.0",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles": "^2.0.6"
   },
   "devDependencies": {
     "@types/node": "^20",
