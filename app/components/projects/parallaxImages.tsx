@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { ProjektData } from "./data";
 import Image from "next/image";
 import { gsap } from "gsap";
@@ -14,11 +14,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ParallaxImages: React.FC<ParallaxImagesProps> = ({ projekty }) => {
   const refs = useRef<(HTMLDivElement | null)[]>([]);
-  const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setWindowWidth(window.innerWidth);
       refs.current.forEach((ref) => {
         if (!ref) return;
         const speed = parseFloat(ref.getAttribute("data-speed")!);
@@ -47,10 +45,9 @@ const ParallaxImages: React.FC<ParallaxImagesProps> = ({ projekty }) => {
     lg: number;
     xl: number;
   }) => {
-    if (windowWidth === null) return values.sm; // Default value during SSR
-    if (windowWidth >= 1280) return values.xl;
-    if (windowWidth >= 1024) return values.lg;
-    if (windowWidth >= 768) return values.md;
+    if (window.innerWidth >= 1280) return values.xl;
+    if (window.innerWidth >= 1024) return values.lg;
+    if (window.innerWidth >= 768) return values.md;
     return values.sm;
   };
 
@@ -69,13 +66,13 @@ const ParallaxImages: React.FC<ParallaxImagesProps> = ({ projekty }) => {
               <div
                 key={obrazekIndex}
                 className={`w-1/2 px-2 py-2 ${
-                  windowWidth !== null && windowWidth >= 1280
+                  window.innerWidth >= 1280
                     ? ""
-                    : windowWidth !== null && windowWidth >= 1024
-                    ? "bg-blue-500"
-                    : windowWidth !== null && windowWidth >= 768
-                    ? "bg-green-500"
-                    : "bg-red-500"
+                    : window.innerWidth >= 1024
+                      ? "bg-blue-500"
+                      : window.innerWidth >= 768
+                        ? "bg-green-500"
+                        : "bg-red-500"
                 }`}
                 ref={addToRefs}
                 data-speed={getResponsiveValue(obrazek.speed).toString()}
