@@ -11,7 +11,7 @@ const MyProjects: React.FC = () => {
   );
 
   // Toto je správný způsob, jak inicializovat refs pro použití s DOM elementy
-  const projektRefs = projektyData.map(() => useRef<HTMLDivElement>(null));
+  const projektRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,20 +32,20 @@ const MyProjects: React.FC = () => {
       }
     );
 
-    projektRefs.forEach((ref) => {
-      if (ref.current) {
-        observer.observe(ref.current);
+    projektRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
       }
     });
 
     return () => {
-      projektRefs.forEach((ref) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
+      projektRefs.current.forEach((ref) => {
+        if (ref) {
+          observer.unobserve(ref);
         }
       });
     };
-  }, []);
+  }, [projektRefs]);
 
   const aktualniProjekt = projektyData.find(
     (projekt) => projekt.id === aktualniProjektId
@@ -56,11 +56,13 @@ const MyProjects: React.FC = () => {
       <div className="w-full md:w-1/2">
         {aktualniProjekt && <TextProjektu projekt={aktualniProjekt} />}
       </div>
-      <div className="w-full md:w-1/2 ">
+      <div className="w-full md:w-1/2">
         {projektyData.map((projekt, index) => (
           <div
             key={projekt.id}
-            ref={projektRefs[index]}
+            ref={(el) => {
+              projektRefs.current[index] = el;
+            }}
             data-id={projekt.id}
             className="projekt-sekce"
           >

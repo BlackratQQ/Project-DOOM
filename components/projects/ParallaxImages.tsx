@@ -52,7 +52,7 @@ const ParallaxImages: React.FC<ParallaxImagesProps> = ({ projekty }) => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }
-  }, []);
+  }, [windowWidth]);
 
   const getResponsiveValue = (values: {
     sm: number;
@@ -104,7 +104,6 @@ const ParallaxImages: React.FC<ParallaxImagesProps> = ({ projekty }) => {
                   alt={`Obrázek ${obrazekIndex + 1} pro projekt ${
                     projekt.title
                   }`}
-                  // fill // místo layout="intrinsic"
                   sizes="100vw"
                   width={100}
                   height={100}
