@@ -10,13 +10,10 @@ const MyProjects: React.FC = () => {
     projektyData[0].id
   );
 
-  const projektRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // Toto je správný způsob, jak inicializovat refs pro použití s DOM elementy
+  const projektRefs = projektyData.map(() => useRef<HTMLDivElement>(null));
 
   useEffect(() => {
-    if (typeof window === "undefined") return; // Ensure this code runs only on the client side
-
-    projektRefs.current = projektyData.map(() => null); // Reset refs array on mount
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -35,16 +32,16 @@ const MyProjects: React.FC = () => {
       }
     );
 
-    projektRefs.current.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
+    projektRefs.forEach((ref) => {
+      if (ref.current) {
+        observer.observe(ref.current);
       }
     });
 
     return () => {
-      projektRefs.current.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
+      projektRefs.forEach((ref) => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
         }
       });
     };
@@ -55,17 +52,15 @@ const MyProjects: React.FC = () => {
   );
 
   return (
-    <div className="flex md:mx-auto md:max-w-[2000px] md:flex-row">
-      <div className="mb-8 w-1/2 md:mb-0 md:w-1/3">
+    <div className="flex flex-wrap md:mx-auto md:max-w-[2000px]">
+      <div className="w-full md:w-1/2">
         {aktualniProjekt && <TextProjektu projekt={aktualniProjekt} />}
       </div>
-      <div className="color: blue w-2/3">
+      <div className="w-full md:w-1/2 ">
         {projektyData.map((projekt, index) => (
           <div
             key={projekt.id}
-            ref={(el) => {
-              projektRefs.current[index] = el;
-            }}
+            ref={projektRefs[index]}
             data-id={projekt.id}
             className="projekt-sekce"
           >
