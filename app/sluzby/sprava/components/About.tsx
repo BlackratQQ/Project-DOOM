@@ -1,9 +1,9 @@
 // soubor: components/About.tsx
 import React from "react";
 import Image from "next/image";
-import FadeInHashtags from "../../../components/animations/FadeInHashtags";
-import SlideInHeader from "../../../components/animations/SlideInHeader";
-import StaggeredFadeInText from "../../../components/animations/StaggeredFadeInText";
+import FadeInHashtags from "../../../../components/animations/FadeInHashtags";
+import SlideInHeader from "../../../../components/animations/SlideInHeader";
+import StaggeredFadeInText from "../../../../components/animations/StaggeredFadeInText";
 
 interface AboutProps {
   className?: string;
@@ -21,8 +21,7 @@ const About: React.FC<AboutProps> = () => {
         <StaggeredFadeInText
           text="Lorem ipsum Lorem Ipsum Lorem ipsum Lorem Ipsum Lorem ipsum Lorem Ipsum Lorem ipsum Lorem Ipsum Lorem ipsum Lorem Ipsum Lorem ipsum Lorem Ipsum"
           className="mb-4 text-left leading-loose"
-        />{" "}
-        {/* Přidání animace */}
+        />
         <FadeInHashtags>
           <h4 className="mb-4 flex flex-wrap text-left">
             <span className="hashtag-glow fade-in-hashtag mr-2 rounded-lg bg-black p-1">

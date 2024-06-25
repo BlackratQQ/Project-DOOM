@@ -1,6 +1,6 @@
 import React from "react";
-import About from "./About";
-import Info from "./Info";
+import About from "./components/About";
+import Info from "./components/Info";
 
 const page = () => {
   return (
