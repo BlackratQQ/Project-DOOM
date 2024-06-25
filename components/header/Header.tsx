@@ -7,10 +7,10 @@ import PortraitImage from "./PortraitImage";
 import GradientImage from "./GradientImage";
 import ParticlesContainer from "./ParticlesContainer";
 import NumberInfo from "./NumberInfo";
-// import useLenis from "../../hooks/useLenis";
+import useLenis from "../../hooks/useLenis";
 
 const Header: React.FC = () => {
-  // useLenis();
+  useLenis();
   return (
     <Fragment>
       <div className="absolute inset-0 md:mx-auto md:max-w-[2000px]">
