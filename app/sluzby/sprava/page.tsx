@@ -1,6 +1,6 @@
 import React from "react";
-import About from "./about";
-import Info from "./info";
+import About from "./About";
+import Info from "./Info";
 
 const page = () => {
   return (
