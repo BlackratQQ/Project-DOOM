@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ServicesData from "./webServicesData";
-import FadeInCards from "../../../components/animations/fadeInCards";
+import FadeInCards from "../../../../components/animations/FadeInCards";
 
 interface WebServicesProps {
   className?: string;
@@ -12,7 +12,7 @@ const WebServicesList: React.FC<WebServicesProps> = ({ className }) => {
     <div
       className={`${className} flex min-h-screen w-full items-center justify-center backdrop-blur-[20px]`}
     >
-      {/* <FadeInCards />  */}
+      <FadeInCards />
       <div className="flex flex-wrap justify-center px-[7%] py-[0]">
         {ServicesData.map((service) => (
           <div key={service.id} className="fade-in-card w-1/5 p-2">
