@@ -12,7 +12,6 @@ interface AboutContentCreationProps {
 const AboutContentCreation: React.FC<AboutContentCreationProps> = () => {
   return (
     <div className="gradient-background3 flex min-h-[80vh] items-center px-[7%] py-[0]">
-      Levá část s obrázkem
       <div className="flex w-3/5 flex-col justify-center space-y-4 p-5">
         <SlideInHeader />
         <h1 className="section-heading slide-in-header mb-4 text-left text-6xl font-bold">
