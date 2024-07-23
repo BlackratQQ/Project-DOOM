@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Portrait from "../../public/Portrait.webp";
+import Portrait from "../../../public/Portrait.webp";
 
 const PortraitImage = () => {
   return (

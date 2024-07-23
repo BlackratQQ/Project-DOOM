@@ -1,6 +1,6 @@
 // soubor: components/InfoSection.tsx
 import React from "react";
-import SequentialFadeIn from "../../../components/animations/SequentialFadeIn";
+import SequentialFadeIn from "../../components/animations/SequentialFadeIn";
 
 const InfoSection: React.FC = () => {
   return (

@@ -1,8 +1,8 @@
 // soubor: components/WebServices.tsx
 import Image from "next/image";
-import SlideFadeIn from "../../../../components/animations/SlideFadeInBox";
-import FadeInBox from "../../../../components/animations/FadeInBox";
-import FadeInHashTags from "../../../../components/animations/FadeInHashtags";
+import SlideFadeIn from "../../../components/animations/SlideFadeInBox";
+import FadeInBox from "../../../components/animations/FadeInBox";
+import FadeInHashTags from "../../../components/animations/FadeInHashtags";
 
 interface MainContentProps {
   className?: string;
@@ -10,21 +10,22 @@ interface MainContentProps {
 
 const MainContent: React.FC<MainContentProps> = ({ className }) => {
   return (
-    <div className="flex min-h-screen items-center space-x-8 px-[7%] py-[0]">
-      <div className="flex w-1/2 flex-col">
+    <div className="flex min-h-screen items-center justify-center px-[7%] py-[0] gap-8">
+      <div className="flex w-1/2 flex-col items-center">
         <Image
           src="/Brain Cells.webp"
           alt="Webové služby"
-          width={200}
-          height={150}
-          layout="responsive"
+          width={400} // Nová šířka obrázku
+          height={300} // Nová výška obrázku
+          layout="intrinsic" // Layout nastaven na intrinsic
+          className="rounded-lg" // Přidání tříd Tailwind pro úpravu stylů
         />
         <SlideFadeIn initialY={50} className="heading-second">
           <h2 className="mt-4 text-6xl font-bold">SECOND HEADING</h2>
         </SlideFadeIn>
       </div>
-      <div className="w-1/2">
-        <div className="flex h-full flex-col justify-center">
+      <div className="flex w-1/2 flex-col items-center">
+        <div className="flex h-full flex-col justify-center max-w-full prose lg:prose-lg">
           <SlideFadeIn initialX={400} className="heading-main">
             <h1 className="section-heading text-8xl font-bold">Main Content</h1>
           </SlideFadeIn>

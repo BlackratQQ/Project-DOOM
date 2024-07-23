@@ -7,7 +7,7 @@ import ECommerceWebsites from "./components/eCommerceWebsites";
 import BlogContentWebsites from "./components/blogContentWebsites";
 import EducationLearningWebsites from "./components/educationLearningWebsites";
 import MainContent from "./components/mainContent";
-import useLenis from "../../../hooks/useLenis";
+import useLenis from "../../hooks/useLenis";
 
 const ScrollPanel = () => {
   useLenis();

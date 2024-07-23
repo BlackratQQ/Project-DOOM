@@ -1,9 +1,9 @@
 // soubor: components/AboutContentCreation.tsx
 import React from "react";
 import Image from "next/image";
-import FadeInHashtags from "../../..//components/animations/FadeInHashtags";
-import SlideInHeader from "../../..//components/animations/SlideInHeader";
-import StaggeredFadeInText from "../../..//components/animations/StaggeredFadeInText";
+import FadeInHashtags from "../../components/animations/FadeInHashtags";
+import SlideInHeader from "../../components/animations/SlideInHeader";
+import StaggeredFadeInText from "../../components/animations/StaggeredFadeInText";
 
 interface AboutContentCreationProps {
   className?: string;

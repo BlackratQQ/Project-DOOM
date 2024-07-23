@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ServicesData from "./webServicesData";
-import FadeInCards from "../../../../components/animations/FadeInCards";
+import FadeInCards from "../../../components/animations/FadeInCards";
 
 interface WebServicesProps {
   className?: string;

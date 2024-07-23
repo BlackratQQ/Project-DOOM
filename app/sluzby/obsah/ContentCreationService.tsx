@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import ServicesData from "./ContentCreationServiceData"; // Doplnění cesty k importu si proveďte dle struktury vašeho projektu
-import FadeInCards from "../../..//components/animations/FadeInCards"; // Import FadeInCards
+import FadeInCards from "../../components/animations/FadeInCards"; // Import FadeInCards
 
 const ContentCreationService: React.FC = () => {
   return (
